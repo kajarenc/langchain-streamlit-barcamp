@@ -46,7 +46,6 @@ tools = [
         description="useful for when you need to answer questions about Chinook database. Input should be in the form of a question containing full context",
     ),
 ]
-print("JJJJJJJJ")
 
 # Initialize agent
 mrkl = initialize_agent(
@@ -86,9 +85,6 @@ if not st.session_state["latest_user_input_executed"] and st.session_state["dirt
         result_container.write(f"**Answer:** {answer}")
         st.session_state["dirty_state"] = "dirty"
         st.session_state["latest_user_input_executed"] = True
-
-print("LAST COMMAND OF THE SCRIPT!!")
-print(st.session_state)
 
 for i in range(10):
     st.empty()
