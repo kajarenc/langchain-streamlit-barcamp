@@ -3,7 +3,7 @@ from pathlib import Path
 import streamlit as st
 
 st.set_page_config(page_title="MRKL", page_icon="🦜", layout="wide")
-st.title("BARCAMP LANGCHAIN + STREMLIT DEMO!!!")
+st.title("🦜️🔗 Langchain Integration")
 
 openai_api_key = st.secrets["openai_api_key"]
 serpapi_api_key = st.secrets["serpapi_api_key"]
@@ -62,7 +62,7 @@ if "latest_user_input_executed" not in st.session_state:
 if "dirty_state" not in st.session_state:
     st.session_state["dirty_state"] = "initial"
 
-user_input = st.chat_input("ASK SOMETHING!")
+user_input = st.chat_input("Ask me anything")
 
 if user_input:
     st.session_state["latest_user_input"] = user_input
@@ -78,7 +78,7 @@ if not st.session_state["latest_user_input_executed"] and st.session_state["dirt
     if st.session_state["latest_user_input"]:
         st.chat_message("user").write(st.session_state["latest_user_input"])
 
-        result_container = st.chat_message("assistant")
+        result_container = st.chat_message("assistant", avatar="🦜")
         streamlit_callback_handler = StreamlitCallbackHandler(result_container)
 
         answer = mrkl.run(st.session_state["latest_user_input"], callbacks=[streamlit_callback_handler])
